@@ -28,4 +28,23 @@ const getBooking = async (prenom, nom) => {
   return response.data;
 };
 
-export { signInBackend, saveBooking, getBookings, getBooking };
+const reservationFinish = async (finishedBooking) => {
+  try {
+    const response = await Axios.post("http://localhost:3000/finish", {
+      finishedBooking,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      "Erreur lors de la demande de réservation de finition : " + error.message
+    );
+  }
+};
+
+export {
+  signInBackend,
+  saveBooking,
+  getBookings,
+  getBooking,
+  reservationFinish,
+};

@@ -17,17 +17,17 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex  bg-[#282E1F]">
-      <div className="h-screen border bg-white w-64">
-        <div className="px-2 py-6">
-          <span className="grid h-10 place-content-center rounded-lg bg-gray-100 text-4xl text-gray-600">
+    <div className="flex bg-[#282E1F]">
+      <div className="h-screen border bg-white w-96">
+        <div className="px-2 py-6 ">
+          <div className="grid py-8 place-content-center rounded-lg bg-[#282E1F] text-4xl text-[#d4f872]">
             {prenom} {nom}
-          </span>
+          </div>
           <ul className="space-y-2">
             <li>
               <button
                 onClick={getData}
-                className="block rounded-lg mt-4 px-4 py-2 w-full font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                className="block rounded-lg mt-4 px-4 py-2 w-full font-medium text-gray-500 hover:bg-[#d4f872] hover:text-gray-700"
               >
                 Voir mes réservations
               </button>
@@ -37,7 +37,7 @@ export default function Dashboard() {
                 onClick={() =>
                   navigate(`/reservation/${bathroom}/${prenom}/${nom}`)
                 }
-                className="block rounded-lg mt-4 px-4 py-2 w-full font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                className="block rounded-lg mt-4 px-4 py-2 w-full font-medium text-gray-500 hover:bg-[#d4f872] hover:text-gray-700"
               >
                 Voir les salles de bain
               </button>
@@ -45,7 +45,7 @@ export default function Dashboard() {
             <li>
               <button
                 onClick={() => navigate(`/`)}
-                className="block rounded-lg mt-4 px-4 py-2 w-full font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                className="block rounded-lg mt-4 px-4 py-2 w-full font-medium text-gray-500 hover:bg-[#d4f872] hover:text-gray-700"
               >
                 Me déconnecter
               </button>

@@ -44,7 +44,7 @@ export default function Reservation() {
 
   return (
     <div className="flex items-center justify-center h-screen bg-[#282E1F]">
-      <div className="rounded-xl bg-white sm:p-6 lg:p-8 max-w-xl">
+      <div className="rounded-xl bg-white sm:p-6 lg:p-8 w-[600]">
         <div className="flex items-start sm:gap-8">
           <div>
             <div className="flex gap-4">
@@ -66,7 +66,8 @@ export default function Reservation() {
             </h3>
 
             <p className="mt-1 text-base text-gray-700 ">
-              Voici les heurs disponible pour la reservation de la salle de bain
+              Voici les heures disponibles pour la réservation de la salle de
+              bain
             </p>
             {loading ? (
               <p>Loading...</p>

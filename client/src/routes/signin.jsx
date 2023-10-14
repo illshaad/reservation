@@ -73,7 +73,7 @@ export default function SignIn() {
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
         <img
           alt="Welcome"
-          src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+          src="https://ucarecdn.com/d48da461-bc97-4ecf-bb4b-1516e778be46/-/preview/500x500/-/quality/smart_retina/-/format/webp/"
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
