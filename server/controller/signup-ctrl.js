@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const format = require("date-fns/format");
 const { fr } = require("date-fns/locale");
+const addDays = require("date-fns/addDays");
 const SignUp = require("../model/signup");
 const Disponible = require("../model/disponible");
 
@@ -21,8 +22,8 @@ const initializeApp = async (req, res) => {
         time: [
           {
             idBathroom: 1,
-            startTime: "09:00",
-            endTime: "09:30",
+            startTime: "9:00",
+            endTime: "9:30",
             prenom: "ajouter",
             nom: "ajouter",
             isBooking: false,
@@ -178,6 +179,7 @@ const signup = async (req, res) => {
 const saveBooking = async (req, res) => {
   try {
     const { reservation } = req.body;
+
     const reservationId = reservation._id;
     const newIdBathroom = reservation.idBathroom;
 
@@ -233,10 +235,43 @@ const getBooking = async (req, res) => {
   }
 };
 
+const finish = async (req, res) => {
+  const { finishedBooking } = req.body;
+
+  for await (let time of finishedBooking) {
+    const idBathroom = time.idBathroom;
+
+    try {
+      const updatedReservation = await Disponible.findOneAndUpdate(
+        { "time.idBathroom": idBathroom },
+        {
+          $set: {
+            "time.$.isBooking": false,
+            "time.$.prenom": "ajouter",
+            "time.$.nom": "ajouter",
+          },
+        }
+      );
+
+      if (!updatedReservation) {
+        return res.status(404).json({ message: "Réservation non trouvée" });
+      }
+
+      res.status(200).json(updatedReservation);
+    } catch (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ message: "Erreur lors de la mise à jour de la réservation" });
+    }
+  }
+};
+
 module.exports = {
   initializeApp,
   signup,
   saveBooking,
   getAvailable,
   getBooking,
+  finish,
 };

@@ -8,4 +8,6 @@ router.post("/signup", signupCtrl.signup);
 router.post("/save/booking", signupCtrl.saveBooking);
 router.get("/bookings", signupCtrl.getAvailable);
 router.get("/booking/:prenom/:nom", signupCtrl.getBooking);
+router.post("/finish", signupCtrl.finish);
+
 module.exports = router;
